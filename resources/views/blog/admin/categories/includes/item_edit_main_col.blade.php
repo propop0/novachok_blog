@@ -3,25 +3,28 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-title"></div>
-                <ul class="nav nav-tabs" role="tablist">
+
+                <ul class="nav nav-tabs mb-3" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#maindata" role="tab">Основні дані</a>
                     </li>
                 </ul>
-                <br>
+
                 <div class="tab-content">
                     <div class="tab-pane active" id="maindata" role="tabpanel">
-                        <div class="form-group">
-                            <label for="title">Заголовок</label>
+                        <div class="form-group mb-3">
+                            <label for="title" class="form-label">Заголовок</label>
                             <input type="text" name="title" value="{{ $item->title }}" id="title" class="form-control" minlength="3" required>
                         </div>
-                        <div class="form-group">
-                            <label for="slug">Псевдонім</label>
+
+                        <div class="form-group mb-3">
+                            <label for="slug" class="form-label">Псевдонім</label>
                             <input type="text" name="slug" value="{{ $item->slug }}" id="slug" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="parent_id">Батківська категорія</label>
-                            <select name="parent_id" placeholder="Оберіть категорію" id="parent_id" class="form-control" required>
+
+                        <div class="form-group mb-3">
+                            <label for="parent_id" class="form-label">Батьківська категорія</label>
+                            <select name="parent_id" id="parent_id" class="form-control" required>
                                 @foreach ($categoryList as $categoryOption)
                                     <option value="{{ $categoryOption->id }}"
                                             @if($categoryOption->id == $item->parent_id) selected @endif>
@@ -30,9 +33,10 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Опис</label>
-                            <textarea name="description" id="description" rows="3" class="form-control">{{ old('description', $item->description) }}</textarea>
+
+                        <div class="form-group mb-3">
+                            <label for="description" class="form-label">Опис</label>
+                            <textarea name="description" id="description" rows="4" class="form-control">{{ old('description', $item->description) }}</textarea>
                         </div>
                     </div>
                 </div>
